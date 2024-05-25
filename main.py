@@ -18,8 +18,10 @@ class Circle:
         ellipse = pygame.draw.ellipse(win, (255, 255, 255), (self.x, self.y, ), self.r)
 
 
+circle = Circle(400, 400, 50, 0, 0)
 
 run = True
 while run:
+    circle.draw(screen)
     pygame.display.update()
 
