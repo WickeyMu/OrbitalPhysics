@@ -26,9 +26,11 @@ class Circle:
 def draw():
     screen.fill((0, 0, 0))
     circle.draw(screen)
+    planet.draw(screen)
 
 
-circle = Circle(400, 400, 50, 1, 1)
+circle = Circle(400, 400, 50, 0, 0)
+planet = Circle(200, 200, 20, 0, 0)
 
 run = True
 while run:
@@ -40,6 +42,7 @@ while run:
     draw()
 
     circle.move()
+    planet.move()
 
     pygame.time.delay(10)
     pygame.display.update()
