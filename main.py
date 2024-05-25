@@ -6,6 +6,8 @@ WIDTH = 800
 HEIGHT = 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
+GRAVITY = 1
+
 
 class Circle:
     def __init__(self, x, y, r, m, x_vel, y_vel):
