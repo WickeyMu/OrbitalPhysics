@@ -23,6 +23,11 @@ class Circle:
         self.y += self.y_vel
 
 
+def draw():
+    screen.fill((0, 0, 0))
+    circle.draw(screen)
+
+
 circle = Circle(400, 400, 50, 1, 1)
 
 run = True
@@ -32,6 +37,7 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-    circle.draw(screen)
+    draw()
+
     circle.move()
     pygame.display.update()
