@@ -29,6 +29,9 @@ def draw():
     circle.draw(screen)
     planet.draw(screen)
 
+def gravity(object_one, object_two):
+    pass
+
 
 circle = Circle(400, 400, 50, 10, 0, 0)
 planet = Circle(200, 200, 20, 10, 0, 0)
