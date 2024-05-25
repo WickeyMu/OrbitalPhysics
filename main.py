@@ -14,6 +14,11 @@ class Circle:
         self.x_vel = x_vel
         self.y_vel = y_vel
 
+    def draw(self, win):
+        ellipse = pygame.draw.ellipse(win, (255, 255, 255), (self.x, self.y, ), self.r)
+
+
+
 run = True
 while run:
     pygame.display.update()
