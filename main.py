@@ -23,5 +23,10 @@ circle = Circle(400, 400, 50, 0, 0)
 
 run = True
 while run:
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+
     circle.draw(screen)
     pygame.display.update()
