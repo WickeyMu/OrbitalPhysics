@@ -16,7 +16,7 @@ class Circle:
         self.y_vel = y_vel
 
     def draw(self, win):
-        ellipse = pygame.draw.ellipse(win, (255, 255, 255), (self.x, self.y,), self.r)
+        pygame.draw.circle(win, (255, 255, 255), (self.x, self.y,), self.r, 1)
 
 
 circle = Circle(400, 400, 50, 0, 0)
