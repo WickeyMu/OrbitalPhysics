@@ -18,8 +18,12 @@ class Circle:
     def draw(self, win):
         pygame.draw.circle(win, (255, 255, 255), (self.x, self.y,), self.r, 1)
 
+    def move(self):
+        self.x += self.x_vel
+        self.y += self.y_vel
 
-circle = Circle(400, 400, 50, 0, 0)
+
+circle = Circle(400, 400, 50, 1, 1)
 
 run = True
 while run:
@@ -29,4 +33,5 @@ while run:
             run = False
 
     circle.draw(screen)
+    circle.move()
     pygame.display.update()
