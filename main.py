@@ -40,4 +40,6 @@ while run:
     draw()
 
     circle.move()
+
+    pygame.time.delay(10)
     pygame.display.update()
