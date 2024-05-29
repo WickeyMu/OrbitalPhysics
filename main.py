@@ -30,8 +30,8 @@ def draw():
     planet.draw(screen)
 
 
-circle = Circle(400, 400, 50, 0, 0)
-planet = Circle(200, 200, 20, 0, 0)
+circle = Circle(400, 400, 50, 10, 0, 0)
+planet = Circle(200, 200, 20, 10, 0, 0)
 
 run = True
 while run:
