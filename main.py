@@ -8,10 +8,11 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 
 class Circle:
-    def __init__(self, x, y, r, x_vel, y_vel):
+    def __init__(self, x, y, r, m, x_vel, y_vel):
         self.x = x
         self.y = y
         self.r = r
+        self.mass = m
         self.x_vel = x_vel
         self.y_vel = y_vel
 
