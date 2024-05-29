@@ -11,13 +11,13 @@ class Circle:
     def __init__(self, x, y, r, m, x_vel, y_vel):
         self.x = x
         self.y = y
-        self.r = r
+        self.radius = r
         self.mass = m
         self.x_vel = x_vel
         self.y_vel = y_vel
 
     def draw(self, win):
-        pygame.draw.circle(win, (255, 255, 255), (self.x, self.y,), self.r, 1)
+        pygame.draw.circle(win, (255, 255, 255), (self.x, self.y,), self.radius, 1)
 
     def move(self):
         self.x += self.x_vel
