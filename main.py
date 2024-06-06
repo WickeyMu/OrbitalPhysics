@@ -31,10 +31,10 @@ def draw():
     circle.draw(screen)
     planet.draw(screen)
 
+
 def gravity(object_one, object_two):
     x_dist = object_one.x - object_two.x
     y_dist = object_one.y - object_two.y
-
 
 
 circle = Circle(400, 400, 50, 0, 0)
