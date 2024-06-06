@@ -18,12 +18,7 @@ class Circle:
         self.x_vel = x_vel
         self.y_vel = y_vel
 
-    def draw(self, win):
-        pygame.draw.circle(win, (255, 255, 255), (self.x, self.y,), self.r, 1)
-
-    def move(self):
-        self.x += self.x_vel
-        self.y += self.y_vel
+    def draw(self, win)
 
 
 def draw():
