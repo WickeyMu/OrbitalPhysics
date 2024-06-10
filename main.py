@@ -30,6 +30,10 @@ def draw():
     planet.draw(screen)
 
 
+def calculate_gravity():
+    pass
+
+
 circle = Circle(400, 400, 50, 50, 0, 0)
 planet = Circle(200, 200, 20, 20, 0, 0)
 
