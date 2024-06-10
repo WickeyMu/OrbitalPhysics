@@ -30,7 +30,7 @@ def draw():
     planet.draw(screen)
 
 
-def calculate_gravity():
+def calculate_gravity(object_one, object_two):
     pass
 
 
