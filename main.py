@@ -8,10 +8,11 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 
 class Circle:
-    def __init__(self, x, y, r, x_vel, y_vel):
+    def __init__(self, x, y, r, m, x_vel, y_vel):
         self.x = x
         self.y = y
         self.radius = r
+        self.mass = m
         self.x_vel = x_vel
         self.y_vel = y_vel
 
@@ -29,8 +30,8 @@ def draw():
     planet.draw(screen)
 
 
-circle = Circle(400, 400, 50, 0, 0)
-planet = Circle(200, 200, 20, 0, 0)
+circle = Circle(400, 400, 50, 50, 0, 0)
+planet = Circle(200, 200, 20, 20, 0, 0)
 
 run = True
 while run:
