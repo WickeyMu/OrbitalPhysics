@@ -43,6 +43,9 @@ def calculate_gravity(object_one, object_two):
         else:
             ang = 90
 
+    x_change = math.sin(math.radians(ang))
+    y_change = math.cos(math.radians(ang))
+
 
 circle = Circle(400, 400, 50, 50, 0, 0)
 planet = Circle(200, 200, 20, 20, 0, 0)
