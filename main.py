@@ -35,6 +35,14 @@ def calculate_gravity(object_one, object_two):
     x_dist = object_one.x - object_two.x
     y_dist = object_one.y - object_two.y
 
+    try:
+        ang = math.degrees(math.atan(x_dist / y_dist))
+    except ZeroDivisionError:
+        if x_dist < 0:
+            ang = -90
+        else:
+            ang = 90
+
 
 circle = Circle(400, 400, 50, 50, 0, 0)
 planet = Circle(200, 200, 20, 20, 0, 0)
