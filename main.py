@@ -50,6 +50,8 @@ def calculate_gravity(object_one, object_two):
         x_change = x_change * -1
         y_change = y_change * -1
 
+    return x_change, y_change
+
 
 circle = Circle(400, 400, 50, 50, 0, 0)
 planet = Circle(200, 200, 20, 20, 0, 0)
