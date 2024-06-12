@@ -34,7 +34,8 @@ def draw():
 
 
 def calculate_gravity(object_one, object_two):
-    pass
+    x_dist = object_one.x - object_two.x
+    y_dist = object_one.y - object_two.y
 
 
 def calculate_gravity_direction(object_one, object_two):
