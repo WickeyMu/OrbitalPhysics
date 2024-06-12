@@ -39,6 +39,10 @@ def calculate_gravity(object_one, object_two):
 
     distance = math.sqrt((x_dist ** 2) + (y_dist ** 2))
 
+    gravity_accel = (object_one.mass * GRAVITATIONAL_CONSTANT) / (distance ** 2)
+
+    return gravity_accel
+
 
 def calculate_gravity_direction(object_one, object_two):
     x_dist = object_one.x - object_two.x
