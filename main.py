@@ -37,6 +37,8 @@ def calculate_gravity(object_one, object_two):
     x_dist = object_one.x - object_two.x
     y_dist = object_one.y - object_two.y
 
+    distance = math.sqrt((x_dist ** 2) + (y_dist ** 2))
+
 
 def calculate_gravity_direction(object_one, object_two):
     x_dist = object_one.x - object_two.x
