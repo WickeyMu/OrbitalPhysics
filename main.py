@@ -3,7 +3,7 @@ import math
 
 pygame.init()
 
-GRAVITATIONAL_CONSTANT = 6.673 * (10 ** -11)
+GRAVITATIONAL_CONSTANT = 6673
 
 WIDTH = 800
 HEIGHT = 800
