@@ -3,6 +3,8 @@ import math
 
 pygame.init()
 
+GRAVITATIONAL_CONSTANT = 6.673 * (10 ** -11)
+
 WIDTH = 800
 HEIGHT = 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
