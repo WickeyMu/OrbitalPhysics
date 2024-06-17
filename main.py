@@ -44,7 +44,7 @@ def calculate_gravity(object_one, object_two):
     return gravity_accel
 
 
-def calculate_gravity_direction(object_one, object_two):
+def calculate_gravity_direction(object_one, object_two, accel):
     x_dist = object_one.x - object_two.x
     y_dist = object_one.y - object_two.y
 
