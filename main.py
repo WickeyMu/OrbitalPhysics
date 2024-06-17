@@ -70,6 +70,9 @@ def enact_gravity(object_one, object_two):
     accel = calculate_gravity(object_one, object_two)
     vector_change = calculate_gravity_direction(object_one, object_two, accel)
 
+    object_two.x_vel += vector_change[0]
+    object_two.y_vel += vector_change[1]
+
 
 circle = Circle(400, 400, 50, 50, 0, 0)
 planet = Circle(200, 200, 20, 20, 0, 0)
