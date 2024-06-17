@@ -65,6 +65,7 @@ def calculate_gravity_direction(object_one, object_two, accel):
 
     return x_change, y_change
 
+
 def enact_gravity(object_one, object_two):
     pass
 
