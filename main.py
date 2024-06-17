@@ -56,8 +56,8 @@ def calculate_gravity_direction(object_one, object_two, accel):
         else:
             ang = 90
 
-    x_change = math.sin(math.radians(ang))
-    y_change = math.cos(math.radians(ang))
+    x_change = math.sin(math.radians(ang)) * accel
+    y_change = math.cos(math.radians(ang)) * accel
 
     if y_dist < 0:
         x_change = x_change * -1
