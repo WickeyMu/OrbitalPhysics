@@ -65,6 +65,9 @@ def calculate_gravity_direction(object_one, object_two, accel):
 
     return x_change, y_change
 
+def enact_gravity(object_one, object_two):
+    pass
+
 
 circle = Circle(400, 400, 50, 50, 0, 0)
 planet = Circle(200, 200, 20, 20, 0, 0)
