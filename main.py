@@ -67,7 +67,7 @@ def calculate_gravity_direction(object_one, object_two, accel):
 
 
 def enact_gravity(object_one, object_two):
-    pass
+    accel = calculate_gravity(object_one, object_two)
 
 
 circle = Circle(400, 400, 50, 50, 0, 0)
