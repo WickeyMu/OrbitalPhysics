@@ -33,7 +33,7 @@ def draw():
     planet.draw(screen)
 
 
-def calculate_gravity(object_one, object_two):
+def calculate_gravity_acceleration(object_one, object_two):
     x_dist = object_one.x - object_two.x
     y_dist = object_one.y - object_two.y
 
@@ -67,7 +67,7 @@ def calculate_gravity_direction(object_one, object_two, accel):
 
 
 def enact_gravity(object_one, object_two):
-    accel = calculate_gravity(object_one, object_two)
+    accel = calculate_gravity_acceleration(object_one, object_two)
     vector_change = calculate_gravity_direction(object_one, object_two, accel)
 
     object_two.x_vel += vector_change[0]
