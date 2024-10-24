@@ -3,7 +3,7 @@ import math
 
 pygame.init()
 
-GRAVITATIONAL_CONSTANT = 6673
+GRAVITATIONAL_CONSTANT = 6.673
 
 WIDTH = 800
 HEIGHT = 800
@@ -38,7 +38,8 @@ def calculate_gravity_acceleration(object_one, object_two):
     y_dist = object_one.y - object_two.y
 
     distance = math.sqrt((x_dist ** 2) + (y_dist ** 2))
-
+    if distance == 0:
+        return 0
     gravity_accel = (object_one.mass * GRAVITATIONAL_CONSTANT) / (distance ** 2)
 
     return gravity_accel
@@ -48,20 +49,10 @@ def calculate_gravity(object_one, object_two, accel):
     x_dist = object_one.x - object_two.x
     y_dist = object_one.y - object_two.y
 
-    try:
-        ang = math.degrees(math.atan(x_dist / y_dist))
-    except ZeroDivisionError:
-        if x_dist < 0:
-            ang = -90
-        else:
-            ang = 90
+    angle = math.atan2(y_dist, x_dist)
 
-    x_change = math.sin(math.radians(ang)) * accel
-    y_change = math.cos(math.radians(ang)) * accel
-
-    if y_dist < 0:
-        x_change = x_change * -1
-        y_change = y_change * -1
+    x_change = math.cos(angle) * accel
+    y_change = math.sin(angle) * accel
 
     return x_change, y_change
 
@@ -75,7 +66,7 @@ def enact_gravity(object_one, object_two):
 
 
 circle = Circle(400, 400, 50, 50, 0, 0)
-planet = Circle(200, 200, 20, 20, 0, 0)
+planet = Circle(400, 200, 20, 20, 0, 0)
 
 run = True
 while run:
@@ -86,8 +77,12 @@ while run:
 
     draw()
 
+    enact_gravity(circle, planet)
+
     circle.move()
     planet.move()
 
     pygame.time.delay(10)
     pygame.display.update()
+
+pygame.quit()
