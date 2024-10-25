@@ -9,6 +9,9 @@ WIDTH = 800
 HEIGHT = 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
+# Define the color for the future trajectory path
+TRAJECTORY_COLOR = (0, 255, 255)  # Cyan color for visibility
+
 
 class Circle:
     def __init__(self, x, y, r, m, res, x_vel, y_vel):
@@ -21,7 +24,7 @@ class Circle:
         self.y_vel = y_vel
 
     def draw(self, win):
-        pygame.draw.circle(win, (255, 255, 255), (self.x, self.y,), self.radius, 1)
+        pygame.draw.circle(win, (255, 255, 255), (int(self.x), int(self.y)), self.radius, 1)
 
     def move(self):
         self.x += self.x_vel
@@ -32,6 +35,8 @@ def draw():
     screen.fill((0, 0, 0))
     circle.draw(screen)
     planet.draw(screen)
+    draw_trajectory(planet, circle)
+    #draw_trajectory(circle, planet)
 
 
 def calculate_gravity_acceleration(object_one, object_two):
@@ -42,6 +47,7 @@ def calculate_gravity_acceleration(object_one, object_two):
     if distance == 0:
         return 0
     gravity_accel = (object_one.mass * GRAVITATIONAL_CONSTANT) / (distance ** 2)
+    print(math.sqrt(gravity_accel * distance))
 
     return gravity_accel
 
@@ -106,12 +112,42 @@ def bounce(obj_one, obj_two):
     obj_two.y_vel -= impulse[1] / obj_two.mass
 
 
+def draw_trajectory(moving_object, stationary_object, steps=200):
+    """Predict and draw the future trajectory of `moving_object` around `stationary_object`."""
+    # Copy initial state of the moving object
+    temp_x, temp_y = moving_object.x, moving_object.y
+    temp_x_vel, temp_y_vel = moving_object.x_vel, moving_object.y_vel
+
+    trajectory_points = []
+
+    for _ in range(steps):
+        # Calculate gravitational acceleration between moving_object and stationary_object
+        accel = calculate_gravity_acceleration(stationary_object,
+                                               Circle(temp_x, temp_y, moving_object.radius, moving_object.mass,
+                                                      moving_object.restitution, temp_x_vel, temp_y_vel))
+        x_change, y_change = calculate_gravity(stationary_object,
+                                               Circle(temp_x, temp_y, moving_object.radius, moving_object.mass,
+                                                      moving_object.restitution, temp_x_vel, temp_y_vel), accel)
+
+        # Update temporary velocity and position for the prediction
+        temp_x_vel += x_change
+        temp_y_vel += y_change
+        temp_x += temp_x_vel
+        temp_y += temp_y_vel
+
+        # Append the current predicted position to the trajectory points
+        trajectory_points.append((int(temp_x), int(temp_y)))
+
+    # Draw the predicted trajectory
+    if len(trajectory_points) > 1:
+        pygame.draw.lines(screen, TRAJECTORY_COLOR, False, trajectory_points, 1)
+
+
 circle = Circle(400, 400, 50, 50, 1, 0, 0)
-planet = Circle(400, 200, 20, 20, 1, 0, 0)
+planet = Circle(400, 200, 20, 20, 1, 1, 0)
 
 run = True
 while run:
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -119,7 +155,7 @@ while run:
     draw()
 
     enact_gravity(circle, planet)
-    enact_gravity(planet, circle)
+    #enact_gravity(planet, circle)
 
     if collision(circle, planet):
         bounce(circle, planet)
